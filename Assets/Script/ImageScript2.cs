@@ -8,10 +8,19 @@ public class ImageScript : MonoBehaviour
     public GameObject helmet1;
     public GameObject helmet2;
     public GameObject helmet3;
+    public GameObject jaka1;
+    public GameObject jaka2;
+    public GameObject jaka3;
+    public GameObject bikses1;
+    public GameObject bikses2;
+    public GameObject bikses3;
+    public GameObject apavi1;
+    public GameObject apavi2;
+    public GameObject apavi3;
     public Sprite[] spriteArray;
     public GameObject imageHolder;
-    public GameObject sizeSlider;
-    public GameObject rotationSlider;
+    public GameObject widthSlider;
+    public GameObject heightSlider;
     public GameObject scroll;
 
     public void showHelmet1(bool value)
@@ -27,6 +36,49 @@ public class ImageScript : MonoBehaviour
     public void showHelmet3(bool value)
     {
         helmet3.SetActive(value);
+    }
+
+    public void showJaka1(bool value)
+    {
+        jaka1.SetActive(value);
+    }
+
+    public void showJaka2(bool value)
+    {
+        jaka2.SetActive(value);
+    }
+
+    public void showJaka3(bool value)
+    {
+        jaka3.SetActive(value);
+    }
+
+    public void showBikses1(bool value)
+    {
+        bikses1.SetActive(value);
+    }
+
+    public void showBikses2(bool value)
+    {
+        bikses2.SetActive(value);
+    }
+    public void showBikses3(bool value)
+    {
+        bikses3.SetActive(value);
+    }
+
+    public void showApavi1(bool value)
+    {
+        apavi1.SetActive(value);
+    }
+
+    public void showApavi2(bool value)
+    {
+        apavi2.SetActive(value);
+    }
+    public void showApavi3(bool value)
+    {
+        apavi3.SetActive(value);
     }
 
     public void changeImage(int index)
@@ -49,16 +101,15 @@ public class ImageScript : MonoBehaviour
         }
     }
 
+    public void changeWidth(){
+    float width = widthSlider.GetComponent<Slider>().value;
+    Vector3 currentScale = imageHolder.transform.localScale;
+    imageHolder.transform.localScale = new Vector3(width, currentScale.y, currentScale.z);
+}
 
-    public void changeSize()
-    {
-        float size = sizeSlider.GetComponent<Slider>().value;
-        imageHolder.transform.localScale = new Vector2(size, size);
-    }
-
-    public void changeRotation()
-    {
-        float rotation = rotationSlider.GetComponent<Slider>().value;
-        imageHolder.transform.localRotation = Quaternion.Euler(0, 0, rotation * 360);
-    }
+    public void changeHeight(){
+    float height = heightSlider.GetComponent<Slider>().value;
+    Vector3 currentScale = imageHolder.transform.localScale;
+    imageHolder.transform.localScale = new Vector3(currentScale.x, height, currentScale.z);
+}
 }
